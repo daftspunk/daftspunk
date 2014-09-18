@@ -1,0 +1,38 @@
+title = "Blog Post"
+url = "/category/:slug"
+layout = "default"
+
+[blogPosts]
+pageParam = ":page"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+categoryPage = "blog/category"
+postPage = "blog/post"
+categoryFilter = ":slug"
+==
+<?
+function onEnd()
+{
+    $this->posts->each(function($post){
+        $post->setHidden(['content', 'content_html']);
+    });
+
+    $this->scope['posts'] = $this->posts;
+    $this->scope['category'] = $this->category;
+    $this->scope['activePage'] = 'blog';
+}
+?>
+==
+
+{% verbatim %}
+
+<h4>Posts in <em>{{ category.name }}</em></h4>
+
+{% endverbatim %}
+
+<div class="ui feed">
+    <div ng-repeat="post in posts.data">
+        {% partial 'blog/post-event' %}
+    </div>
+</div>
+

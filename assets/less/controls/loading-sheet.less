@@ -1,0 +1,37 @@
+//
+// Loading overlay
+//
+
+#loadingSheet {
+    opacity: 0;
+    pointer-events: none;
+
+    background-color: @brand-primary;
+    #gradient .vertical(@brand-primary-alt, @brand-primary);
+    background-image: -webkit-linear-gradient(92deg, @brand-primary, @brand-primary-alt);
+
+    -webkit-animation: hue 60s infinite linear;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 19999;
+    .transition(1s opacity);
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -28px;
+        margin-left: -28px;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+body.loading {
+    #loadingSheet {
+        opacity: .6;
+    }
+}

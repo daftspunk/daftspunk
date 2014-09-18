@@ -1,0 +1,100 @@
+<div class="header-strip"></div>
+
+{# Note: Only one levels of sublinks are supported by Bootstrap 3 #}
+{% set
+    links = {
+        home: ['blog/blog', 'home'],
+
+        blog: {
+            name: 'blog',
+            sublinks: {
+                code: ['blog/category', 'code', { slug: 'code' }],
+                thought: ['blog/category', 'thought', { slug: 'thought' }],
+                discovery: ['blog/category', 'discovery', { slug: 'discovery' }],
+                random: ['blog/category', 'random', { slug: 'random' }],
+            },
+        },
+        about: ['about', 'about'],
+        resources: ['resources', 'resources'],
+    }
+%}
+{% macro render_menu(links, activePage) %}
+    {% for code, link in links %}
+        <li
+            {# class="{{ code == activePage ? 'active' }} {{ link.sublinks ? 'dropdown' }}" #}
+            ng-class="{{ "{ active: activePage == '" ~ code ~ "' }" }}">
+            <a
+                href="{{ link.sublinks ? 'javascript:;' : (link.page ?: link[0])|page(link[2] ?: []) }}"
+                {% if link.sublinks %}data-toggle="dropdown"{% endif %}
+                class="{{ link.sublinks ? 'dropdown-toggle' }}"
+            >
+                {{ link.name ?: link[1] }}
+                {% if link.sublinks %}<span class="caret"></span>{% endif %}
+            </a>
+            {% if link.sublinks %}
+                <span class="dropdown-arrow"></span>
+                <ul class="dropdown-menu">
+                    {{ _self.render_menu(link.sublinks, activePage) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as nav %}
+
+<nav id="layout-nav" class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'home'|page }}">daftspunk</a>
+        </div>
+        <div class="navbar-offcanvas offcanvas">
+            <a class="navmenu-brand" href="{{ 'home'|page }}">daftspunk</a>
+            {#
+            <div class="navbar-right">
+                <a href="javascript:;" class="btn btn-link navbar-btn navbar-search-btn">
+                    <i class="fa fa-search search-open"></i>
+                    <i class="search-close">&times;</i>
+                </a>
+                <div class="navbar-search">
+                    <input type="search" placeholder="Search..." />
+                </div>
+            </div>
+            #}
+            <ul class="nav navbar-nav">
+                {{ nav.render_menu(links, viewBag.activePage) }}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% put scripts %}
+    <script>
+        $('.navbar-search-btn').on('click', function(){
+            $('.navbar-search').toggle()
+            $(this).find('.search-open').toggle().end().find('.search-close').toggle()
+        })
+
+        $('#layout-nav').on('click', '.navmenu-brand, ul.nav li a', function(){
+            if ($(this).hasClass('dropdown-toggle'))
+                return
+
+            $(document).triggerHandler('click')
+
+        //     var item = $(this).closest('li')
+        //     // if (item.hasClass('active'))
+        // //         return
+
+        //     $('#layout-nav li.active').removeClass('active')
+        //     item.addClass('active')
+        //     item.parent().closest('li').addClass('active')
+        // //     $('[ng-view], [oc-placeholder]').addClass('ng-leave')
+        })
+    </script>
+{% endput %}

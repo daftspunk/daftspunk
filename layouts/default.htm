@@ -1,0 +1,104 @@
+[appLayout]
+==
+<?
+function onStart()
+{
+    $this->appLayout->addModuleDependency('angularMoment');
+}
+
+function stripHtmlFromUrl()
+{
+    // Redirect .html|.htm away
+    $slug = $this->param('slug');
+    if (ends_with($slug, ['.html', '.htm'])) {
+        $redirect = $this->currentPageUrl(['slug' => str_replace(['.html', '.htm'], '', $slug)]);
+        return Redirect::to($redirect, 301);
+    }
+}
+?>
+==
+<!DOCTYPE html>
+<html ng-app="appLayout">
+    <head>
+        <title>{{ this.page.title }} | daft spunk</title>
+        <meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1.0">
+        <base href="/octotest/">
+
+        {% styles %}
+        <link href="{{ [
+            '@framework.extras',
+            'assets/vendor/prettify/prettify.css',
+            'assets/vendor/prettify/theme-desert.css',
+            'assets/css/theme.css'
+        ]|theme }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular-sanitize.min.js"></script>
+    </head>
+    <body class="loading" ng-class="bodyClass">
+
+        <!-- Navigation -->
+        <div id="layoutNav" class="ng-cloak">
+            {% partial 'layout/nav' %}
+        </div>
+
+        {#
+        <div class="container">
+            <div class="sponsor">
+                <script type="text/javascript"><!--
+                google_ad_client = "ca-pub-6723135032423808";
+                /* daftspunk */
+                google_ad_slot = "4124163286";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div>
+        </div>
+        #}
+
+        <!-- Title -->
+        <div id="layoutTitle">
+            <div class="jumbotron jumbotron-home">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
+                            <a href="{{ 'blog/blog'|page }}"><h1>daftspunk<span class="hidden-xs">.com</span></h1></a>
+                            <p class="lead">the personal blog of samuel georges</p>
+                            <hr />
+                            <p>
+                                find me on
+                                <a href="http://twitter.com/daftspunk" target="_blank">twitter</a>,
+                                <a href="https://vimeo.com/daftspunk" target="_blank">vimeo</a> or
+                                <a href="http://au.linkedin.com/pub/sam-georges/31/641/a9" target="_blank">linkedin</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container content-container">
+            <div ng-view autoscroll id="layoutContent"></div>
+        </div>
+
+        <!-- Footer -->
+        <div id="layoutFooter">
+            {% partial 'layout/footer' %}
+        </div>
+
+        <div id="loadingSheet">
+            <img src="/octotest/themes/daftspunk/assets/vendor/loading/loading-bubbles.svg" alt="Loading icon" />
+        </div>
+
+        <script src="{{ ['assets/javascript/jquery.js', '@framework', '@framework.extras']|theme }}"></script>
+        {% component 'appLayout' %}
+        <script src="{{ ['assets/javascript/app.js']|theme }}"></script>
+        {% scripts %}
+    </body>
+</html>

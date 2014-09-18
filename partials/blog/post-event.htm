@@ -1,0 +1,19 @@
+{% verbatim %}
+<div class="event">
+    <div class="label">
+        <img src="//www.gravatar.com/avatar/b460a3bb4ed53b7928cda3547c3ac926?s=120" class="img-circle animated-content animate scale-up" />
+    </div>
+    <div class="content">
+        <div class="date">
+            &lt;<span ng-repeat="category in post.categories">{{ category.name }}{{ $last ? '' : ', ' }}</span>&gt;
+        </div>
+        <div class="summary">
+            <a ng-href="{{ post.url }}">{{ post.title }}</a>
+        </div>
+        <div class="extra text">
+            <div ng-bind-html="post.summary"></div>
+            <a ng-href="{{ post.url }}" ng-show="post.has_summary" class="continue-reading">Continue reading...</a>
+        </div>
+    </div>
+</div>
+{% endverbatim %}

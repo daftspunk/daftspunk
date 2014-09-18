@@ -1,0 +1,20 @@
+title = "404 Error"
+url = "/404"
+layout = "default"
+description = "Page displayed when user visits a broken link."
+
+[RainLab\Blog\Components\Categories blogPost]
+idParam = ":slug"
+displayEmpty = "0"
+categoryPage = "blog/category"
+==
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Page not found</h1>
+            <p>We're sorry, but the page you requested cannot be found.</p>
+        </div>
+    </div>
+</div>
+
+{% component 'blogPost' %}

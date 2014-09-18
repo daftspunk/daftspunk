@@ -1,0 +1,26 @@
+//
+// Override Semantic UI
+//
+
+.ui.items {
+    font-size: 125%;
+
+    .item > .content > .name {
+        font-weight: 400;
+    }
+
+    > .row > .item,
+    > .item {
+        min-height: inherit;
+        margin-bottom: 2.5em;
+    }
+
+    @media (max-width: @screen-sm-max) {
+        font-size: 110%;
+    }
+
+    @media (max-width: @screen-xs-max) {
+        font-size: 100%;
+    }
+
+}

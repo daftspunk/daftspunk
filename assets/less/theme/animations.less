@@ -1,0 +1,57 @@
+//
+// Animations
+// --------------------------------------------------
+
+//
+// Hypercolor
+//
+
+@keyframes hue {
+    from { filter: hue-rotate(0deg); }
+    to { filter: hue-rotate(-360deg); }
+}
+
+@-webkit-keyframes hue {
+    from { -webkit-filter: hue-rotate(0deg); }
+    to { -webkit-filter: hue-rotate(-360deg); }
+}
+
+//
+// Content
+//
+
+@keyframes contentEnter {
+    from { opacity: 0; }
+}
+
+@keyframes contentLeave {
+    to { opacity: 0; }
+}
+
+@-webkit-keyframes contentEnter {
+    from { opacity: 0; }
+}
+
+@-webkit-keyframes contentLeave {
+    to { opacity: 0; }
+}
+
+
+/*
+@-webkit-keyframes contentEnter {
+    from { opacity: .3; -webkit-transform: scale(.95); }
+}
+
+@-webkit-keyframes contentLeave {
+    to { opacity: 0; -webkit-transform: scale(.95); }
+}
+
+
+@keyframes contentEnter {
+    from { opacity: .3; transform: scale(.95); }
+}
+
+@keyframes contentLeave {
+    to { opacity: 0; transform: scale(.95); }
+}
+*/

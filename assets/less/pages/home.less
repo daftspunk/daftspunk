@@ -1,0 +1,36 @@
+
+.continue-area {
+    margin: 20px 0;
+
+    .btn {
+        color: @text-color;
+        background-color: #f2f2f1;
+        border-radius: 40px;
+        -webkit-animation: hue 60s infinite linear;
+        &:hover, &:focus {
+            background-color: @brand-primary;
+            #gradient .vertical(@brand-primary-alt, @brand-primary);
+            background-image: -webkit-linear-gradient(92deg, @brand-primary, @brand-primary-alt);
+            color: #fff;
+        }
+        &:active, &.active {
+            background-color: mix(@brand-primary, black, 85%);
+            #gradient .vertical(mix(@brand-primary-alt, black, 85%), mix(@brand-primary, black, 85%));
+            background-image: -webkit-linear-gradient(92deg, mix(@brand-primary, black, 85%), mix(@brand-primary-alt, black, 85%));
+        }
+    }
+
+    .btn-hyper {
+        border: 2px solid @brand-primary;
+        color: @brand-primary;
+        cursor: pointer;
+        -webkit-animation: hue 60s infinite linear;
+        background-color: transparent;
+
+        &:hover, &:focus {
+            background-color: @brand-primary;
+            border-color: transparent;
+            color: #fff;
+        }
+    }
+}

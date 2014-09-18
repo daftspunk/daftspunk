@@ -1,0 +1,38 @@
+title = "About"
+url = "/about"
+layout = "default"
+==
+<?
+function onEnd()
+{
+    $this->scope['activePage'] = 'about';
+}
+?>
+==
+<div class="row">
+    <div class="col-sm-3">
+        <img src="{{ 'assets/images/samuelgeorges.jpg'|theme }}" class="img-rounded img-responsive animated-content animate move-left" />
+    </div>
+    <div class="col-sm-9">
+
+        <h4>
+            My medium for sharing and expression of ideas...
+            <br /><small>...mostly it's just a place where I record my <a href="#">thoughts</a> and <a href="#">discoveries</a>.</small>
+        </h4>
+
+        <ul class="list-group">
+            <li class="list-group-item">Code – Programming Tips & Techniques using HTML, PHP, mySQL, jQuery, CodeIgniter.</li>
+            <li class="list-group-item">Design – Inspiration for User Interface, Web, CSS, Print.</li>
+            <li class="list-group-item">Conflict – Philosophy on Life, Occurrence, Perception, Reality.</li>
+            <li class="list-group-item">Spam – Method & Strategy on Marketing, Research, Management.</li>
+            <li class="list-group-item">Random – Nothing, Anything, Everything.</li>
+        </ul>
+
+
+        <hr />
+
+        <h5>What on earth is <em>daft spunk</em>?</h5>
+        <p>It's my alternate call sign to my original nickname <strong>spunky</strong>, named after the dimwitted dog from <a href="http://en.wikipedia.org/wiki/Rocko's_Modern_Life" target="_blank">Rocko's Modern Life</a>. I've been using it for a long time now, almost 15 years.</p>
+        <p>The nickname came about on IRC when I repeatedly discovered spunky was already taken. I also loved daft punk back in 1999, so the name "daft spunk" just kind of stuck with me.</p>
+    </div>
+</div>

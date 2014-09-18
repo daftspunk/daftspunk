@@ -1,0 +1,161 @@
+//
+// Nav
+// --------------------------------------------------
+
+.header-strip {
+    -webkit-animation: hue 60s infinite linear;
+    border-top: 6px solid @brand-primary;
+}
+
+body.home {
+    #layoutNav {
+        top: -100px;
+        opacity: 0;
+    }
+}
+
+body.default {
+    #layoutNav {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+#layoutNav {
+    height: 100px;
+    width: 100%;
+    position: relative;
+    .transition(~".75s opacity, .75s top");
+    z-index: 19999;
+}
+
+.navbar {
+    .icon-bar {
+        -webkit-animation: hue 60s infinite linear;
+    }
+    border-top: none;
+    padding-top: 20px;
+    padding-bottom: 0;
+
+    .navbar-brand {
+        margin-right: 20px;
+    }
+
+    // Top level only
+    > .container > div > ul.nav {
+        > li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 40px;
+            background-color: @brand-primary;
+            #gradient .vertical(@brand-primary, @brand-primary-alt);
+            -webkit-animation: hue 60s infinite linear;
+        }
+        > li > a {
+            border-radius: 40px;
+            margin: -1px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            border: 1px solid #fff;
+            .transition(~"color .3s, border .3s");
+            background: #fff;
+
+            .caret {
+                .caret(#ccc);
+                margin-top: -2px;
+            }
+        }
+        > li.open > a,
+        > li > a:hover,
+        > li > a:focus {
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+        > li.active {
+            margin-top: 11px;
+        }
+        > li.active > a {
+            border: none;
+            color: #fff;
+            background: transparent;
+            .transition(none);
+
+            .caret {
+                .caret(#fff);
+            }
+        }
+    }
+
+    ul.navbar-nav a {
+        font-weight: 700;
+    }
+
+    ul.dropdown-menu {
+        -webkit-animation: hue 60s infinite linear;
+    }
+
+    ul.dropdown-menu li a {
+        font-weight: 400;
+    }
+}
+
+
+@media (max-width: @screen-xs-max) {
+    .navbar {
+
+        // Top level only
+        > .container > div > ul.nav {
+            > li {
+                background: #fff;
+                border-radius: 0;
+                margin: 0;
+            }
+            > li > a {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-radius: 0;
+                border: 1px solid transparent;
+                .transition(none);
+                .caret {
+                    margin-top: 5px;
+                }
+            }
+            > li.open > a,
+            > li > a:hover,
+            > li > a:focus {
+                background: #fff;
+                border: 1px solid #ccc;
+            }
+            > li.active > a {
+                border: none;
+                margin-top: 11px;
+                color: #fff;
+                background-color: @brand-primary;
+                #gradient .vertical(@brand-primary, @brand-primary-alt);
+                -webkit-animation: hue 60s infinite linear;
+
+                .caret {
+                    .caret(#fff);
+                }
+            }
+        }
+
+
+        > ul.nav {
+            margin-top:20px;
+        }
+        ul.nav {
+            li a {
+                margin-left: 5px;
+            }
+        }
+        .dropdown-toggle .caret {
+            float: right;
+            margin-top: 5px;
+        }
+        .dropdown-menu {
+            margin-top: 10px !important;
+            .transition(none);
+        }
+    }
+}

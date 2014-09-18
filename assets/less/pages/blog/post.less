@@ -1,0 +1,19 @@
+//
+// Blog post page
+//
+
+#otherPostsContainer {
+    margin-bottom: 4em;
+
+    .item {
+        &.ng-leave {
+            .animation(contentLeave .4s both ease-in);
+            z-index: 8888;
+        }
+
+        &.ng-enter {
+            .animation(contentEnter .5s both ease-in);
+            z-index: 9999;
+        }
+    }
+}

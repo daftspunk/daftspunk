@@ -1,0 +1,65 @@
+//
+// Layouts
+//
+// Styles specific to different page layouts.
+//
+
+@import "_nav";
+@import "_title";
+@import "_content";
+@import "_footer";
+
+//
+// Shared / Common
+//
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.hyper-color {
+    color: @brand-primary;
+    background-image: -webkit-linear-gradient(92deg, @brand-primary, @brand-primary-alt);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 60s infinite linear;
+}
+
+.caret {
+    -webkit-animation: hue 60s infinite linear;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.form-submit {
+    padding: 20px 0;
+}
+
+hr {
+    border: none;
+    margin: 20px 0;
+    height: 1px;
+    background-color: #c0c8c9;
+    background-image: -webkit-linear-gradient(0deg, #fff, #c0c8c9, #fff);
+}
+
+body .stripe-loading-indicator {
+    height: 6px;
+    z-index: 29999;
+    .stripe, .stripe-loaded {
+        background: #fff;
+        height: 6px;
+    }
+}
+
+pre.prettyprint {
+    font-size: .8em;
+    border: none;
+    border-radius: 0;
+    padding: 13px 0 13px 1.4em;
+    margin-left: -1.4em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}

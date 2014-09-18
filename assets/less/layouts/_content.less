@@ -1,0 +1,30 @@
+//
+// Content
+// --------------------------------------------------
+
+.content-container {
+    position: relative;
+    .clearfix;
+}
+
+#layoutContent {
+
+    &.ng-leave-active {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        background: #fff;
+    }
+
+    &.ng-leave {
+        .animation(contentLeave .4s both ease-in);
+        z-index: 8888;
+    }
+
+    &.ng-enter {
+        .animation(contentEnter .5s both ease-in);
+        z-index: 9999;
+    }
+
+}

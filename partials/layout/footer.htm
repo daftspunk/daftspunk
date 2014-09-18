@@ -1,0 +1,39 @@
+==
+<div class="container">
+    <nav class="pull-left">
+        <ul>
+            <li ng-class="{{ "{ active: activePage == 'home' }" }}">
+                <a href="{{ 'home' |page }}">home</a>
+            </li>
+            <li ng-class="{{ "{ active: activePage == 'about' }" }}">
+                <a href="{{ 'about'|page }}">about</a>
+            </li>
+            <li ng-class="{{ "{ active: activePage == 'resources' }" }}">
+                <a href="{{ 'resources'|page }}">resources</a>
+            </li>
+            <li ng-class="{{ "{ active: activePage == 'blog' }" }}">
+                <a href="{{ 'blog/blog'|page }}">blog</a>
+            </li>
+            <li>
+                <a href="#">contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="social-btns pull-right">
+        <a href="http://twitter.com/daftspunk" target="_blank">
+            <div class="fa fa-twitter"></div><div class="fa fa-twitter"></div>
+        </a>
+        <a href="https://vimeo.com/daftspunk" target= target="_blank">
+            <div class="fa fa-linkedin"></div><div class="fa fa-linkedin"></div>
+        </a>
+        <a href="http://au.linkedin.com/pub/sam-georges/31/641/a9" target="_blank">
+            <div class="fa fa-vimeo-square"></div><div class="fa fa-vimeo-square"></div>
+        </a>
+    </div>
+    {#
+    <div class="additional-links">
+        Be sure to take a look to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+    </div>
+    #}
+</div>
+

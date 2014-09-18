@@ -1,0 +1,28 @@
+title = "Blog"
+url = "/blog/:page?"
+layout = "default"
+
+[blogPosts]
+pageParam = ":page"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+<?php
+function onEnd()
+{
+    $this->posts->each(function($post){
+        $post->setHidden(['content', 'content_html']);
+    });
+    $this->scope['posts'] = $this->posts;
+    $this->scope['activePage'] = 'home';
+}
+?>
+==
+
+<div class="ui feed">
+    <div ng-repeat="post in posts.data">
+        {% partial 'blog/post-event' %}
+    </div>
+</div>

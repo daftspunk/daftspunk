@@ -1,0 +1,102 @@
+title = "Blog Post"
+url = "/:category/:slug"
+layout = "default"
+
+[blogPost]
+idParam = ":slug"
+categoryPage = "blog/category"
+==
+<?php
+function onStart()
+{
+    return $this->controller->layoutObj->stripHtmlFromUrl();
+
+}
+
+function onEnd()
+{
+    $this->scope['post'] = $this->post;
+    $this->scope['activePage'] = 'blog';
+}
+
+function onGetOtherPosts()
+{
+    $this->pageCycle();
+
+    if (!$this->post)
+        return;
+
+    $posts = [];
+    $post = $this->post;
+
+    if ($previous = $post->newQuery()->with('categories')->where('id', '<', $post->id)->orderBy('id' ,'desc')->first()) {
+        $previous->setUrl($this->page->getFileName(), $this->controller);
+        $posts[] = $previous->toArray();
+    }
+
+    if ($next = $post->newQuery()->with('categories')->where('id', '>', $post->id)->orderBy('id' ,'asc')->first()) {
+        $next->setUrl($this->page->getFileName(), $this->controller);
+        $posts[] = $next->toArray();
+    }
+
+    return $posts;
+}
+?>
+==
+
+{% verbatim %}
+
+<div class="" ng-hide="post">
+    <h2>Post not found...</h2>
+    <p class="lead">Sorry about that</p>
+</div>
+
+<div ng-show="post">
+
+    <div class="ui feed">
+
+        <div class="event">
+            <div class="label">
+                <img src="//www.gravatar.com/avatar/b460a3bb4ed53b7928cda3547c3ac926?s=120" class="img-circle animated-content animate scale-up" />
+            </div>
+            <div class="content">
+                <div class="date">
+                    <span am-time-ago="post.published_at"></span>
+                </div>
+                <div class="summary">
+                    {{ post.title }}
+                </div>
+                <div class="extra text">
+                    <div ng-bind-html="post.content_html"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Other posts -->
+    <div id="otherPostsContainer">
+        <div ng-show="!otherPosts" class="text-center">
+            <img src="/octotest/themes/daftspunk/assets/vendor/loading/loading-bubbles-red.svg" alt="Loading icon" />
+        </div>
+
+        <div class="ui two stackable items">
+            <a ng-repeat="post in otherPosts" class="item" ng-href="{{ post.url }}">
+                <div class="content">
+                    <div class="meta">
+                        <span ng-repeat="category in post.categories">{{ category.name }}{{ $last ? '' : ', ' }}</span>
+                    </div>
+                    <div class="name">{{ post.title }}</div>
+                    <p class="description">
+                        {{ post.excerpt }}
+                    </p>
+                    <div class="extra">
+                        <span am-time-ago="post.published_at"></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endverbatim %}

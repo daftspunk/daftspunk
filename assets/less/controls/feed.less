@@ -1,0 +1,55 @@
+//
+// Override Semantic UI
+//
+
+.ui.feed {
+    font-size: 140%;
+
+    .label {
+        &, img { width: 5em; }
+    }
+
+    a:hover {
+        .hyper-color;
+    }
+
+    @media (max-width: @screen-md-max) {
+        font-size: 130%;
+    }
+
+    @media (max-width: @screen-sm-max) {
+        font-size: 120%;
+    }
+
+    @media (max-width: @screen-xs-max) {
+        font-size: 105%;
+        .label {
+            &, img { width: 3em; }
+        }
+    }
+
+    p {
+        margin-bottom: 1em;
+
+        strong {
+            font-weight: 400;
+            background-color: mix(#c0c8c9, white, 50%);
+            padding: .2em .5em;
+            margin: -.2em 0;
+            color: #555;
+            a {
+                color: #555;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .content .extra.text {
+        border-left-color: #c0c8c9;
+    }
+
+    .content .summary {
+        text-transform: uppercase;
+        color: mix(#c0c8c9, black, 70%);
+    }
+}

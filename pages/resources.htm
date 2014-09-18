@@ -1,0 +1,83 @@
+title = "Resources"
+url = "/resources"
+layout = "default"
+==
+<?php
+function onEnd()
+{
+    $this->scope['activePage'] = 'resources';
+}
+?>
+==
+{% set
+    resources = {
+        code: {
+            name: 'Code',
+            items: [
+                ['Geonames', 'http://www.geonames.org/', 'Geographical database accessible via APIs.'],
+                ['PHP Obfuscator', 'http://www.pipsomania.com/best_php_obfuscator.do', 'Protect code by scrambling it. *Obscurity is not security.*'],
+            ]
+        },
+        design: {
+            name: 'Design',
+            items: [
+                ['Semantic UI', 'http://semantic-ui.com', 'Semantic front-end framework'],
+                ['PhoneGap', 'http://phonegap.com/', 'HTML for iPhone'],
+                ['365psd', 'http://365psd.com>', 'Free PSD collection'],
+                ['psdGraphics', 'http://www.psdgraphics.com', 'Another free PSD collection'],
+            ]
+        },
+        spam: {
+            name: 'Spam',
+            items: [
+                ['schema.org', 'http://www.schema.org', 'Rich snippets (microdata, microformats, RDFa)'],
+                ['WLMarketing', 'http://www.wlmarketing.com', 'Cheap link posting'],
+                ['Fast Character', 'http://www.fastcharacters.com', 'Mascot designers'],
+                ['Demo Girl', 'http://www.demogirl.com', 'Screencast production'],
+                ['Guide to Naming', 'http://www.igorinternational.com/process/naming-guide-product-company-names.php', 'Short version recommended'],
+            ]
+        },
+        random: {
+            name: 'Random',
+            items: [
+                ['Kettle Bells', 'http://www.kettlebells.com.au', 'An efficient method for exercise and muscle building.'],
+            ]
+        },
+    }
+%}
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Collection of <em>stuff</em> I like</h4>
+    </div>
+    <div class="col-md-6">
+        <div id="resourceFilters" class="pull-right">
+            <div class="btn-group">
+                <a class="btn btn-link btn-lg active" href="javascript:;" data-filter=".item">all</a>
+                {% for code, resource in resources %}
+                    <a class="btn btn-link btn-lg" href="javascript:;" data-filter=".item.{{ code }}">{{ resource.name|lower }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="resourceItems" class="ui three stackable items">
+    {% for code, resource in resources %}
+        {% for item in resource.items %}
+
+            <a href="{{ item[1] }}" class="item {{ code }}" target="_blank">
+                <div class="content">
+                    <div class="name">{{ item[0] }}</div>
+                    <div class="description">{{ item[2]|md }}</div>
+                      <div class="extra">
+                          {{ resource.name }}
+                      </div>
+                </div>
+            </a>
+
+        {% endfor %}
+    {% endfor %}
+</div>
+
