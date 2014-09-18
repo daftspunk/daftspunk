@@ -22,7 +22,7 @@ function stripHtmlFromUrl()
     <head>
         <title>{{ this.page.title }} | daft spunk</title>
         <meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1.0">
-        <base href="/octotest/">
+        <base href="{{ '/'|app }}/">
 
         {% styles %}
         <link href="{{ [
@@ -93,7 +93,7 @@ function stripHtmlFromUrl()
         </div>
 
         <div id="loadingSheet">
-            <img src="/octotest/themes/daftspunk/assets/vendor/loading/loading-bubbles.svg" alt="Loading icon" />
+            <img src="{{ 'assets/vendor/loading/loading-bubbles.svg'|theme }}" alt="Loading icon" />
         </div>
 
         <script src="{{ ['assets/javascript/jquery.js', '@framework', '@framework.extras']|theme }}"></script>
