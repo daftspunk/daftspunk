@@ -456,15 +456,15 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 48px;
+  font-size: 39px;
 }
 h2,
 .h2 {
-  font-size: 41px;
+  font-size: 33px;
 }
 h3,
 .h3 {
-  font-size: 32px;
+  font-size: 26px;
 }
 h4,
 .h4 {
@@ -9569,6 +9569,115 @@ body.default #layoutTitle .jumbotron-home {
 .content-container:after {
   clear: both;
 }
+#layoutContent p,
+#layoutContent h1,
+#layoutContent h2,
+#layoutContent h3,
+#layoutContent h4,
+#layoutContent h5,
+#layoutContent h6 {
+  line-height: 2;
+}
+#layoutContent h1,
+#layoutContent h2,
+#layoutContent h3 {
+  color: #626e76;
+  text-transform: uppercase;
+}
+#layoutContent h4,
+#layoutContent h5,
+#layoutContent h6 {
+  color: #626e76;
+  font-weight: 400;
+  margin-top: 1em;
+}
+#layoutContent em {
+  color: #3e454a;
+  font-weight: 400;
+}
+#layoutContent ul li,
+#layoutContent ol li {
+  line-height: 2;
+}
+#layoutContent ol,
+#layoutContent ul {
+  margin-bottom: 2em;
+  padding-left: 2em;
+}
+#layoutContent p {
+  margin-bottom: 1em;
+}
+#layoutContent strong {
+  font-weight: 400;
+  background-color: #e0e4e4;
+  padding: .2em .5em;
+  margin: -0.2em 0;
+  color: #3e454a;
+}
+#layoutContent strong a {
+  color: #555;
+  text-decoration: underline;
+}
+@media (max-width: 1199px) {
+  #layoutContent h1 {
+    font-size: 35.1px;
+  }
+  #layoutContent h2 {
+    font-size: 29.7px;
+  }
+  #layoutContent h3 {
+    font-size: 23.400000000000002px;
+  }
+  #layoutContent h4 {
+    font-size: 20.7px;
+  }
+  #layoutContent h5 {
+    font-size: 18.900000000000002px;
+  }
+  #layoutContent h6 {
+    font-size: 17.1px;
+  }
+}
+@media (max-width: 991px) {
+  #layoutContent h1 {
+    font-size: 31.200000000000003px;
+  }
+  #layoutContent h2 {
+    font-size: 26.400000000000002px;
+  }
+  #layoutContent h3 {
+    font-size: 20.8px;
+  }
+  #layoutContent h4 {
+    font-size: 18.400000000000002px;
+  }
+  #layoutContent h5 {
+    font-size: 16.8px;
+  }
+  #layoutContent h6 {
+    font-size: 15.200000000000001px;
+  }
+}
+@media (max-width: 767px) {
+  #layoutContent h1 {
+    font-size: 27.299999999999997px;
+  }
+  #layoutContent h2 {
+    font-size: 23.099999999999998px;
+  }
+  #layoutContent h3 {
+    font-size: 18.2px;
+  }
+  #layoutContent h4 {
+    font-size: 16.099999999999998px;
+  }
+  #layoutContent h5 {
+    font-size: 14.7px;
+  }
+  #layoutContent h6 {
+    font-size: 13.299999999999999px;
+  }
+}
 #layoutContent.ng-leave-active {
   position: absolute;
   width: 100%;
@@ -9792,6 +9901,11 @@ pre.prettyprint {
   margin-top: 1em;
   margin-bottom: 2em;
 }
+ol pre.prettyprint,
+ul pre.prettyprint {
+  margin-left: -3.9em;
+  padding-left: 3.4em;
+}
 .ui.feed {
   font-size: 140%;
 }
@@ -9825,26 +9939,12 @@ pre.prettyprint {
     width: 3em;
   }
 }
-.ui.feed p {
-  margin-bottom: 1em;
-}
-.ui.feed p strong {
-  font-weight: 400;
-  background-color: #e0e4e4;
-  padding: .2em .5em;
-  margin: -0.2em 0;
-  color: #555;
-}
-.ui.feed p strong a {
-  color: #555;
-  text-decoration: underline;
-}
 .ui.feed .content .extra.text {
   border-left-color: #c0c8c9;
 }
 .ui.feed .content .summary {
   text-transform: uppercase;
-  color: #868c8d;
+  color: #626e76;
 }
 .ui.items {
   font-size: 125%;
