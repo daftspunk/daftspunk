@@ -9,7 +9,7 @@ categoryPage = "blog/category"
 <?php
 function onStart()
 {
-    return $this->controller->layoutObj->stripHtmlFromUrl();
+    return $this->controller->getLayoutObject()->stripHtmlFromUrl();
 
 }
 
