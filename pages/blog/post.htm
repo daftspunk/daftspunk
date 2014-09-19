@@ -44,7 +44,6 @@ function onGetOtherPosts()
 ?>
 ==
 
-{% verbatim %}
 
 <div class="" ng-hide="post">
     <h2>Post not found...</h2>
@@ -55,6 +54,7 @@ function onGetOtherPosts()
 
     <div class="ui feed">
 
+        {% verbatim %}
         <div class="event">
             <div class="label">
                 <img src="//www.gravatar.com/avatar/b460a3bb4ed53b7928cda3547c3ac926?s=120" class="img-circle animated-content animate scale-up" />
@@ -71,6 +71,7 @@ function onGetOtherPosts()
                 </div>
             </div>
         </div>
+        {% endverbatim %}
 
     </div>
 
@@ -80,6 +81,7 @@ function onGetOtherPosts()
             <img src="{{ 'assets/vendor/loading/loading-bubbles-red.svg'|theme }}" alt="Loading icon" />
         </div>
 
+        {% verbatim %}
         <div class="ui two stackable items">
             <a ng-repeat="post in otherPosts" class="item" ng-href="{{ post.url }}">
                 <div class="content">
@@ -96,7 +98,8 @@ function onGetOtherPosts()
                 </div>
             </a>
         </div>
+        {% endverbatim %}
+
     </div>
 
 </div>
-{% endverbatim %}
