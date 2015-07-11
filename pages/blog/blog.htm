@@ -14,6 +14,7 @@ function onEnd()
 {
     $this->posts->each(function($post){
         $post->setHidden(['content', 'content_html']);
+        $post->avatar = $this->themeUrl('assets/images/sam.png');
     });
     $this->scope['posts'] = $this->posts;
     $this->scope['activePage'] = 'home';

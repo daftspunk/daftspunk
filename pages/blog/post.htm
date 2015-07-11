@@ -9,12 +9,16 @@ categoryPage = "blog/category"
 <?php
 function onStart()
 {
-    return $this->controller->getLayoutObject()->stripHtmlFromUrl();
-
+    // Make sure the URL does not end in .htm / .html
+    return $this->getLayoutObject()->stripHtmlFromUrl();
 }
 
 function onEnd()
 {
+    if (isset($this->post->id)) {
+        $this->post->avatar = $this->themeUrl('assets/images/sam.png');
+    }
+
     $this->scope['post'] = $this->post;
     $this->scope['activePage'] = 'blog';
 }
@@ -57,7 +61,7 @@ function onGetOtherPosts()
         {% verbatim %}
         <div class="event">
             <div class="label">
-                <img src="//www.gravatar.com/avatar/b460a3bb4ed53b7928cda3547c3ac926?s=120" class="img-circle animated-content animate scale-up" />
+                <img src="{{ post.avatar }}" class="img-circle animated-content animate scale-up" />
             </div>
             <div class="content">
                 <div class="date">

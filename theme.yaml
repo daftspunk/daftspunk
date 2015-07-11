@@ -1,0 +1,8 @@
+name: Hyper
+code: Hyper
+description: A theme that uses a AngularJS to create a single page application (SPA).
+author: Responsiv Internet
+homepage: 'http://github.com/responsiv'
+require:
+    - RainLab.Blog
+    - RainLab.Pages

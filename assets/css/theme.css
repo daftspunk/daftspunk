@@ -10068,6 +10068,6 @@ ul pre.prettyprint {
   width: 56px;
   height: 56px;
 }
-body.loading #loadingSheet {
+body.oc-loading #loadingSheet {
   opacity: .6;
 }

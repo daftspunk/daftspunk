@@ -1,5 +1,4 @@
 october.controllers['resources'] = function ($scope, $request) {
-    
 
     setTimeout(function(){
 
@@ -18,4 +17,5 @@ october.controllers['resources'] = function ($scope, $request) {
         })
 
     }, 0)
+
 }

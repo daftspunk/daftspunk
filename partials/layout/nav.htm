@@ -52,11 +52,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ 'home'|page }}">daftspunk</a>
+            <a class="navbar-brand" href="{{ 'home'|page }}">hyper</a>
         </div>
         <div class="navbar-offcanvas offcanvas">
-            <a class="navmenu-brand" href="{{ 'home'|page }}">daftspunk</a>
-            {#
+
+            <a class="navmenu-brand" href="{{ 'home'|page }}">hyper</a>
+
             <div class="navbar-right">
                 <a href="javascript:;" class="btn btn-link navbar-btn navbar-search-btn">
                     <i class="fa fa-search search-open"></i>
@@ -66,10 +67,11 @@
                     <input type="search" placeholder="Search..." />
                 </div>
             </div>
-            #}
+
             <ul class="nav navbar-nav">
                 {{ nav.render_menu(links, viewBag.activePage) }}
             </ul>
+
         </div>
     </div>
 </nav>
@@ -86,15 +88,6 @@
                 return
 
             $(document).triggerHandler('click')
-
-        //     var item = $(this).closest('li')
-        //     // if (item.hasClass('active'))
-        // //         return
-
-        //     $('#layout-nav li.active').removeClass('active')
-        //     item.addClass('active')
-        //     item.parent().closest('li').addClass('active')
-        // //     $('[ng-view], [oc-placeholder]').addClass('ng-leave')
         })
     </script>
 {% endput %}
