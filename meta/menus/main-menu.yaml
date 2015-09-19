@@ -1,0 +1,27 @@
+name: 'Main menu'
+items:
+    -
+        title: Home
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: home
+        cmsPage: ''
+        replace: ''
+    -
+        title: Blog
+        type: all-blog-categories
+        code: ''
+        cmsPage: blog/category
+        replace: '0'
+    -
+        title: About
+        type: url
+        url: 'http://wikipedia.com'
+        code: ''
+    -
+        title: Resources
+        type: url
+        url: 'http://google.com'
+        code: ''
