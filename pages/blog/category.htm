@@ -3,12 +3,12 @@ url = "/category/:slug"
 layout = "default"
 
 [blogPosts]
-pageParam = ":page"
-postsPerPage = "10"
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
 noPostsMessage = "No posts found"
+postsPerPage = "10"
 categoryPage = "blog/category"
 postPage = "blog/post"
-categoryFilter = ":slug"
 ==
 <?
 function onEnd()
